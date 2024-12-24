@@ -24,9 +24,9 @@ class DB_con {
         }
     }
 
-    public function insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $bankSlipPath) {
-        $query = "INSERT INTO tb_booking (firstname, lastname, phone, checkin, checkout, price, roomtype, bank_slip) 
-                  VALUES ('$firstname', '$lastname', '$phone', '$checkin', '$checkout', '$price', '$roomtype', '$bankSlipPath')";
+    public function insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $status) {
+        $query = "INSERT INTO tb_booking (firstname, lastname, phone, checkin, checkout, price, roomtype, status) 
+                  VALUES ('$firstname', '$lastname', '$phone', '$checkin', '$checkout', '$price', '$roomtype', '$status')";
         return mysqli_query($this->dbcon, $query);
     }
 }
@@ -40,24 +40,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $checkout = $_POST['checkout'];
     $price = $_POST['price'];
     $roomtype = $_POST['roomtype'];
+    $status = $_POST['status'];  // Get the status value
 
-    // Handle file upload
-    $bankSlip = $_FILES['bank_slip'];
-    $uploadDir = '../uploads/';
-    $uploadFilePath = $uploadDir . basename($bankSlip['name']);
+    // Insert booking data into the database
+    $db = new DB_con();
+    $result = $db->insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $status);
 
-    if (move_uploaded_file($bankSlip['tmp_name'], $uploadFilePath)) {
-        // Insert booking data into the database
-        $db = new DB_con();
-        $result = $db->insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $uploadFilePath);
-
-        if ($result) {
-            echo "<script>alert('Booking successful!'); window.location.href = '../success.php';</script>";
-        } else {
-            echo "<script>alert('Error while booking. Please try again.');</script>";
-        }
+    if ($result) {
+        echo "<script>alert('Booking successful!'); window.location.href = '../success.php';</script>";
     } else {
-        echo "<script>alert('Failed to upload bank slip. Please try again.');</script>";
+        echo "<script>alert('Error while booking. Please try again.');</script>";
     }
 }
 ?>
@@ -142,10 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <div class="form-group">
-          <label for="bank_account">Kasikorn Bank : 11111-1111-111</label><br>
-          <label for="bank_account">Name : Adam Mafuck</label><br>
-          <label for="bank_slip">Upload Bank Slip:</label>
-          <input type="file" id="bank_slip" name="bank_slip" accept="image/*" required>
+          <input type="hidden" id="status" name="status" value="รอชำระ" />
         </div>
 
         <button type="submit" class="btn">Confirm Booking</button>

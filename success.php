@@ -23,14 +23,14 @@ if (!isset($_SESSION['sess_id'])) {
         <img src="img/success.png" alt="Success" />
       </div>
       <h2>Thank you for booking room with Our</h2>
-      <p>The staff will contact you back within 10-20 minutes</p>
+      <p></p>
       <a class="btn" href="dashboard.html">Return to home page</a>
     </div>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p style="margin-bottom: 0;">© 2024 Book a hotel. All rights reserved.</p>
+      <p>© 2024 Book a hotel. All rights reserved.</p>
     </div>
   </footer>
 

@@ -24,9 +24,9 @@ class DB_con {
         }
     }
 
-    public function insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $bankSlipPath) {
-        $query = "INSERT INTO tb_booking (firstname, lastname, phone, checkin, checkout, price, roomtype, bank_slip) 
-                  VALUES ('$firstname', '$lastname', '$phone', '$checkin', '$checkout', '$price', '$roomtype', '$bankSlipPath')";
+    public function insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $status) {
+        $query = "INSERT INTO tb_booking (firstname, lastname, phone, checkin, checkout, price, roomtype, status) 
+                  VALUES ('$firstname', '$lastname', '$phone', '$checkin', '$checkout', '$price', '$roomtype', '$status')";
         return mysqli_query($this->dbcon, $query);
     }
 }
@@ -40,27 +40,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $checkout = $_POST['checkout'];
     $price = $_POST['price'];
     $roomtype = $_POST['roomtype'];
+    $status = $_POST['status'];  // Get the status value
 
-    // Handle file upload
-    $bankSlip = $_FILES['bank_slip'];
-    $uploadDir = '../uploads/';
-    $uploadFilePath = $uploadDir . basename($bankSlip['name']);
+    // Insert booking data into the database
+    $db = new DB_con();
+    $result = $db->insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $status);
 
-    if (move_uploaded_file($bankSlip['tmp_name'], $uploadFilePath)) {
-        // Insert booking data into the database
-        $db = new DB_con();
-        $result = $db->insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $uploadFilePath);
-
-        if ($result) {
-            echo "<script>alert('Booking successful!'); window.location.href = '../success.php';</script>";
-        } else {
-            echo "<script>alert('Error while booking. Please try again.');</script>";
-        }
+    if ($result) {
+        echo "<script>alert('Booking successful!'); window.location.href = '../success.php';</script>";
     } else {
-        echo "<script>alert('Failed to upload bank slip. Please try again.');</script>";
+        echo "<script>alert('Error while booking. Please try again.');</script>";
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,12 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </header>
 
-  
   <section class="hero">
     <div class="backgound"></div>
     <div class="container">
       <h2>Stylish Simplicity of a Hotel</h2>
-      <a href="#rooms" class="btn" >Book Now</a>
+      <a href="#rooms" class="btn">Book Now</a>
     </div>
   </section>
 
@@ -109,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <section class="form-section">
     <div class="container-1">
-      <form action="" method="POST" enctype="multipart/form-data">
+      <form action="" method="POST">
         <div class="form-group">
           <label for="firstname">First Name:</label>
           <input type="text" id="firstname" name="firstname" placeholder="Enter Firstname" required>
@@ -127,12 +119,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="form-group">
           <label for="checkin">Check-in Date:</label>
-          <input type="date" id="checkin" name="checkin" placeholder="ee" required>
+          <input type="date" id="checkin" name="checkin" required>
         </div>
 
         <div class="form-group">
           <label for="checkout">Check-out Date:</label>
-          <input type="date" id="checkout" name="checkout" placeholder="ee" required>
+          <input type="date" id="checkout" name="checkout" required>
         </div>
 
         <div class="form-group">
@@ -142,12 +134,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <div class="form-group">
-          <label for="bank_account">Kasikorn Bank : 11111-1111-111</label><br>
-          <label for="bank_account">Name : Adam Mafuck</label><br>
-          <label for="bank_slip">Upload Bank Slip:</label>
-          <input type="file" id="bank_slip" name="bank_slip" accept="image/*" required>
+          <input type="hidden" id="status" name="status" value="รอชำระ" />
         </div>
-
+        
         <button type="submit" class="btn">Confirm Booking</button>
       </form>
     </div>
@@ -158,6 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <p>© 2024 Book a hotel. All rights reserved.</p>
     </div>
   </footer>
+
   <script>
   // Function to calculate the price based on the date range
   function calculatePrice() {
@@ -210,6 +200,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     smoothScrollToForm();  // Trigger the smooth scroll
     document.getElementById('firstname').focus();  // Focus on the first input field
   };
-</script>
+  </script>
 </body>
 </html>
