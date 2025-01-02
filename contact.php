@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['sess_id'])) {
+    header('Location: ../login.php'); 
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +21,7 @@
       <nav class="nav">
         <ul>
           <li><a href="dashboard.html">Home</a></li>
+          <li><a href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>   
           <li><a href="contact.php">Contact Us</a></li>
           <li><a href="javascript:history.back()">Back</a></li> 
           <li><a style="color: #ff5d5d;"href="../logout.php">Logout</a></li>

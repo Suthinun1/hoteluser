@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    height: 100%; /* กำหนดความสูงของหน้าทั้งหมด */
+    margin: 0; /* ลบ padding/margin */
+    overflow-y: scroll; /* อนุญาตให้เลื่อนในแนวตั้ง */
+    scrollbar-width: none; /* ซ่อน scrollbar บน Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* ซ่อน scrollbar บน Chrome, Safari */
+}
+  /* Body Styling */
+  body {
+    background: #f9f9f9;
+    font-family: "Geist Mono", serif;
+    font-optical-sizing: auto;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  /* Header Section */
+  .header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+  }
+  
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  
+  .header .logo {
+    font-size: 1.5rem;
+  }
+  
+  .header .nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .header .nav ul li {
+    margin-left: 20px;
+  }
+  
+  .header .nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .header .nav ul li a:hover {
+    text-decoration: none;
+  }
+
+table {
+    width: 95%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td[colspan="8"] {
+    text-align: center;
+    font-style: italic;
+}
+
+/* สำหรับการจัดการ layout ของหน้า */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* เพิ่มการตกแต่งให้ดูสวยงาม */
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer {
+    background: #f9f9f9;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    color: #666;
+    margin-top: auto;
+}
+
+.headtx {
+    text-align: center;
+    margin-top: 10px;
+}

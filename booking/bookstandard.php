@@ -24,15 +24,16 @@ class DB_con {
         }
     }
 
-    public function insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $status) {
-        $query = "INSERT INTO tb_booking (firstname, lastname, phone, checkin, checkout, price, roomtype, status) 
-                  VALUES ('$firstname', '$lastname', '$phone', '$checkin', '$checkout', '$price', '$roomtype', '$status')";
+    public function insertBooking($id, $firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $status) {
+        $query = "INSERT INTO tb_booking (id, firstname, lastname, phone, checkin, checkout, price, roomtype, status) 
+                  VALUES ('$id', '$firstname', '$lastname', '$phone', '$checkin', '$checkout', '$price', '$roomtype', '$status')";
         return mysqli_query($this->dbcon, $query);
     }
 }
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $phone = $_POST['phone'];
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insert booking data into the database
     $db = new DB_con();
-    $result = $db->insertBooking($firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $status);
+    $result = $db->insertBooking($id, $firstname, $lastname, $phone, $checkin, $checkout, $price, $roomtype, $status);
 
     if ($result) {
         echo "<script>alert('Booking successful!'); window.location.href = '../success.php';</script>";
@@ -69,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <nav class="nav">
         <ul>
           <li><a href="../dashboard.html">Home</a></li>
+          <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>
           <li><a href="../contact.php">Contact Us</a></li>
           <li><a href="javascript:history.go(-2)">Back</a></li>
           <li><a style="color: #ff5d5d;" href="../logout.php">Logout</a></li>
@@ -131,10 +133,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <label for="price">Price:</label>
           <input type="text" id="price" name="price" readonly>
           <input type="hidden" id="roomtype" name="roomtype" value="standard" readonly>
+          <input type="hidden" id="id" name="id" value="<?php echo $_SESSION['sess_id']; ?>" readonly>
         </div>
 
         <div class="form-group">
-          <input type="hidden" id="status" name="status" value="รอชำระ" />
+          <input type="hidden" id="status" name="status" value="รอตอบกลับ"/>
         </div>
         
         <button type="submit" class="btn">Confirm Booking</button>
