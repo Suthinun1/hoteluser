@@ -25,6 +25,7 @@
       
       <div class="signup-link">
         <p>Don't have an account? <a href="register.php">Sign up</a></p>
+        <p style="margin-top:10px;">Forgot password <a href="reset_pass.php" style="color:green;">Reset password</a></p>
       </div>
     </form>
   </div>

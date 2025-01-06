@@ -28,7 +28,7 @@ $result = $stmt->get_result();  // ดึงผลลัพธ์ของคำ
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/his.css">
-    <title>ประวัติการจอง</title>
+    <title>Hotel Booking</title>
 
     <style>
         .status-waiting {
@@ -41,8 +41,11 @@ $result = $stmt->get_result();  // ดึงผลลัพธ์ของคำ
             color: green;
         }
         .status-pending a {
-            color: orange; /* สีลิงก์เมื่อคลิกได้ */
-            text-decoration: underline;
+            border-radius: 5px;
+            padding: 7px 12px;
+            background: orange;
+            color: #ffffff;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -86,16 +89,18 @@ $result = $stmt->get_result();  // ดึงผลลัพธ์ของคำ
                 $statusClass = '';
                 $statusContent = $row['status']; // Default status content
                 
-                // ถ้า status คือ "รอชำระ" ให้เป็นลิงก์ไปยังหน้า payment.php
-                if ($row['status'] == 'รอตอบกลับ') {
-                    $statusClass = 'status-waiting';
-                } elseif ($row['status'] == 'รอชำระ') {
-                    $statusClass = 'status-pending';
-                    // เพิ่มลิงก์ไปยังหน้า payment.php
-                    $statusContent = "<a href='payment.php?booking_id=" . $row['id'] . "'>รอชำระ</a>";
-                } elseif ($row['status'] == 'เสร็จสิ้น') {
-                    $statusClass = 'status-completed';
-                }
+                // ตรวจสอบสถานะของการจอง
+if ($row['status'] == 'รอตอบกลับ') {
+    $statusClass = 'status-waiting';
+} elseif ($row['status'] == 'รอชำระ') {
+    $statusClass = 'status-pending';
+    // เปลี่ยนคำว่า 'รอชำระ' เป็น 'กรุณาชำระเงิน' พร้อมลิงก์ไปยังหน้าการชำระ
+    $statusContent = "<a href='payment.php?booking_id=" . $row['idpri'] . "'>กรุณาชำระเงิน</a>";
+} elseif ($row['status'] == 'เสร็จสิ้น') {
+    $statusClass = 'status-completed';
+    $statusContent = 'เสร็จสิ้น';
+}
+
 
                 if (empty($row['id_room'])) {
                     $idRoomContent = 'wait confirm';

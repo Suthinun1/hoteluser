@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2024 at 03:51 PM
+-- Generation Time: Jan 06, 2025 at 03:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -127,6 +127,8 @@ INSERT INTO `tb_addmin` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `tb_booking` (
+  `idpri` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
@@ -134,18 +136,10 @@ CREATE TABLE `tb_booking` (
   `checkout` date DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
   `roomtype` varchar(50) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL
+  `status` varchar(255) DEFAULT NULL,
+  `id_room` varchar(255) NOT NULL,
+  `slip_image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tb_booking`
---
-
-INSERT INTO `tb_booking` (`firstname`, `lastname`, `phone`, `checkin`, `checkout`, `price`, `roomtype`, `status`) VALUES
-('Athip', 'Praneewat', '11111', '2024-12-25', '2024-12-26', 500.00, 'standard', NULL),
-('Athip', 'Praneewat', '0624618607', '2024-12-25', '2024-12-27', 1000.00, 'standard', 'รอชำระ'),
-('Athip', 'Praneewat', '0624618607', '2024-12-25', '2024-12-27', 3000.00, 'sweet', 'รอชำระ'),
-('Athip', 'Praneewat', '0624618607', '2024-12-27', '2024-12-30', 9000.00, 'vip', 'รอชำระ');
 
 -- --------------------------------------------------------
 
@@ -158,15 +152,9 @@ CREATE TABLE `tb_user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `tb_user`
---
-
-INSERT INTO `tb_user` (`user_id`, `username`, `password`, `firstname`, `lastname`) VALUES
-(1, 'user', '1', 'test', 'test');
 
 --
 -- Indexes for dumped tables
@@ -183,6 +171,12 @@ ALTER TABLE `rooms`
 --
 ALTER TABLE `tb_addmin`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_booking`
+--
+ALTER TABLE `tb_booking`
+  ADD PRIMARY KEY (`idpri`);
 
 --
 -- Indexes for table `tb_user`
@@ -207,10 +201,16 @@ ALTER TABLE `tb_addmin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `tb_booking`
+--
+ALTER TABLE `tb_booking`
+  MODIFY `idpri` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -24,7 +24,7 @@ if (!isset($_SESSION['sess_id'])) {
       </div>
       <h2>Thank you for booking room with Our</h2>
       <p></p>
-      <a class="btn" href="dashboard.html">Return to home page</a>
+      <a class="btn" href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">Go to the purchase history page.</a>
     </div>
   </main>
 
