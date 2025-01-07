@@ -10,6 +10,7 @@
         $fname = $_POST['firstname'];
         $lname = $_POST['lastname'];
         $uname = $_POST['username'];
+        $email = $_POST['email'];  // New line to capture email
         $pass = $_POST['password'];
     
         // ตรวจสอบว่าค่าของ confirm password ตรงกันหรือไม่
@@ -17,7 +18,7 @@
             echo "<script>alert('Password and Confirm Password do not match');</script>";
         } else {
             // เรียกใช้ฟังก์ชัน insert ให้ถูกต้อง
-            $sql = $insertdata->insert($uname, $pass, $fname, $lname);
+            $sql = $insertdata->insert($uname, $pass, $fname, $lname, $email); // Updated to include email
     
             if ($sql) {
                 echo "<script>alert('Register Successfully');</script>";
@@ -30,6 +31,7 @@
     }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +39,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <link rel="stylesheet" href="css/register.css">
+    <style>
+          html, body {
+    height: 100%; /* กำหนดความสูงของหน้าทั้งหมด */
+    margin: 0; /* ลบ padding/margin */
+    overflow-y: scroll; /* อนุญาตให้เลื่อนในแนวตั้ง */
+    scrollbar-width: none; /* ซ่อน scrollbar บน Firefox */
+}   
+    </style>
 </head>
 <body>
     <div class="container">
@@ -53,6 +63,10 @@
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Create new username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
