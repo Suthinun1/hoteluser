@@ -32,21 +32,41 @@ $result = $stmt->get_result();  // ดึงผลลัพธ์ของคำ
 
     <style>
         .status-waiting {
-            color: red;
-        }
-        .status-pending {
-            color: orange;
-        }
-        .status-completed {
-            color: green;
-        }
-        .status-pending a {
-            border-radius: 5px;
-            padding: 7px 12px;
-            background: orange;
-            color: #ffffff;
-            text-decoration: none;
-        }
+    color: orange;
+    text-shadow: 0 0 15px rgb(191, 143, 0);
+}
+
+.status-pending {
+    color: red;
+}
+
+.status-completed {
+    color: green;
+    text-shadow: 0 0 15px #007e26;
+    
+}
+
+.status-completed-1 a {
+    border-radius: 5px;
+    padding: 7px 12px;
+    background: #007e26;
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.status-canceled {
+    color: #ff0000;
+    text-shadow: 0 0 15px #ae0000;
+}
+
+.status-pending a {
+    border-radius: 5px;
+    padding: 7px 12px;
+    background: orange;
+    color: #ffffff;
+    text-decoration: none;
+}
+
     </style>
 </head>
 <body>
@@ -56,7 +76,7 @@ $result = $stmt->get_result();  // ดึงผลลัพธ์ของคำ
       <h1 class="logo">Book a hotel</h1>
       <nav class="nav">
         <ul>
-          <li><a href="dashboard.html">Home</a></li>
+          <li><a href="dashboard.php">Home</a></li>
           <li><a href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>
           <li><a href="contact.php">Contact Us</a></li>
           <li><a href="javascript:history.back()">Back</a></li>
@@ -90,17 +110,28 @@ $result = $stmt->get_result();  // ดึงผลลัพธ์ของคำ
                 $statusContent = $row['status']; // Default status content
                 
                 // ตรวจสอบสถานะของการจอง
-if ($row['status'] == 'รอตอบกลับ') {
-    $statusClass = 'status-waiting';
-} elseif ($row['status'] == 'รอชำระ') {
-    $statusClass = 'status-pending';
-    // เปลี่ยนคำว่า 'รอชำระ' เป็น 'กรุณาชำระเงิน' พร้อมลิงก์ไปยังหน้าการชำระ
-    $statusContent = "<a href='payment.php?booking_id=" . $row['idpri'] . "'>กรุณาชำระเงิน</a>";
-} elseif ($row['status'] == 'เสร็จสิ้น') {
-    $statusClass = 'status-completed';
-    $statusContent = 'เสร็จสิ้น';
-}
 
+                if ($row['status'] == 'รอตอบกลับ') {
+                    $statusClass = 'status-waiting';
+                    $statusContent = 'รอตอบกลับ';
+                } elseif ($row['status'] == 'รอชำระ') {
+                    $statusClass = 'status-pending';
+                    // เพิ่มลิงก์ไปยังหน้าการชำระเงิน
+                    $statusContent = "<a href='payment.php?booking_id=" . $row['idpri'] . "'>กรุณาชำระเงิน</a>";
+                } elseif ($row['status'] == 'ชำระเงินเสร็จสิ้น') {
+                    $statusClass = 'status-completed';
+                    $statusContent = 'ชำระเงินเสร็จสิ้น';
+                } elseif ($row['status'] == 'ยกเลิก') {
+                    $statusClass = 'status-canceled';
+                    $statusContent = 'ยกเลิก';
+                } elseif ($row['status'] == 'ยืนยัน') { // ตรวจสอบสถานะยืนยัน
+                    $statusClass = 'status-completed-1';
+                    $statusContent = "<a href='slip.php?booking_id=" . $row['idpri'] . "'>เสร็จสิ้น</a>";
+                } else {
+                    $statusClass = '';
+                    $statusContent = $row['status'];
+                }
+                
 
                 if (empty($row['id_room'])) {
                     $idRoomContent = 'wait confirm';
@@ -120,7 +151,7 @@ if ($row['status'] == 'รอตอบกลับ') {
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='7'>No information found.</td></tr>";
+            echo "<tr><td colspan='8'>No information found.</td></tr>";
         }
         ?>
     </tbody>

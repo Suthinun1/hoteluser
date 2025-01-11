@@ -42,18 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         // อัพโหลดไฟล์
         if (move_uploaded_file($_FILES["slip_image"]["tmp_name"], $target_file)) {
-            // อัพเดตฐานข้อมูล
+            // อัพเดตฐานข้อมูลสำหรับไฟล์สลิป
             $slip_image = $target_file;
-            $update_sql = "UPDATE tb_booking SET slip_image = ? WHERE idpri = ?";
+            $update_sql = "UPDATE tb_booking SET slip_image = ?, status = 'ชำระเงินเสร็จสิ้น' WHERE idpri = ?";
             $update_stmt = $conn->prepare($update_sql);
             $update_stmt->bind_param("si", $slip_image, $booking_id);
             $update_stmt->execute();
             
-            // JavaScript alert
-            echo "<script type='text/javascript'>alert('The file " . basename($_FILES["slip_image"]["name"]) . " has been uploaded.');</script>";
+            // แจ้งเตือนผ่าน JavaScript
+            echo "<script type='text/javascript'>alert('The file " . basename($_FILES["slip_image"]["name"]) . " has been uploaded and the status has been updated to \"ชำระเงินเสร็จสิ้น\".');</script>";
         } else {
             echo "Sorry, there was an error uploading your file.";
-        }
+        }        
     }
 }
 ?>
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h1 class="logo">Book a hotel</h1>
         <nav class="nav">
             <ul>
-                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="dashboard.php">Home</a></li>
                 <li><a href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
                 <li><a href="javascript:history.back()">Back</a></li>

@@ -19,7 +19,7 @@
             $_SESSION['sess_username'] = $_POST['username'];
             echo "<script>
                     alert('Login successful!');
-                    window.location.href = '../dashboard.html';
+                    window.location.href = '../dashboard.php';
                   </script>";
             exit;
         } else {
