@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 
 * {
     margin: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: "Geist Mono", serif;
+    font-family: "Noto Sans Thai", sans-serif; /* เปลี่ยนฟอนต์เป็น Noto Sans Thai */
     font-optical-sizing: auto;
     font-weight: 700;
     background-color: #f4f4f9;
@@ -15,24 +15,24 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
+}
   
-  /* Login container */
-  .login-container {
+/* Login container */
+.login-container {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 40px;
     width: 500px;
-  }
+}
   
-  /* Form title */
-  h2 {
+/* Form title */
+h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
-  }
-  
+}
+
 /* Input fields */
 .input-group {
     margin-bottom: 20px;
@@ -88,4 +88,3 @@ button[type="submit"]:hover {
 .signup-link a:hover {
     text-decoration: none;
 }
-

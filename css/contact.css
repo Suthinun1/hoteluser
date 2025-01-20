@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 
 * {
     margin: 0;
@@ -8,12 +8,15 @@
 
 body {
     background: #f9f9f9;
-    font-family: "Geist Mono", serif;
+    font-family: "Noto Sans Thai", serif; /* ใช้ฟอนต์ Noto Sans Thai */
     font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;  /* Make sure body covers at least the full height of the viewport */
+    min-height: 100vh; /* ให้ครอบคลุมเต็มหน้าจอ */
 }
 
 .header {
@@ -57,11 +60,11 @@ body {
     text-align: center;
     padding: 2rem 1rem;
     background: #f9f9f9;
-    height: 80vh; /* Full viewport height */
+    height: 80vh; /* ให้ความสูงครอบคลุม viewport */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
+    justify-content: center; /* จัดแนวกลางในแนวตั้ง */
+    align-items: center; /* จัดแนวกลางในแนวนอน */
 }
 
 .contact-options {
@@ -119,7 +122,6 @@ body {
     background: #f9f9f9;
     text-align: center;
     padding: 1rem;
-    margin-top: 2rem;
     color: #666;
     margin-top: auto;
 }

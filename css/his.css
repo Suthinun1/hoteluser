@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
 /* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  html, body {
+}
+html, body {
     height: 100%; /* กำหนดความสูงของหน้าทั้งหมด */
     margin: 0; /* ลบ padding/margin */
     overflow-y: scroll; /* อนุญาตให้เลื่อนในแนวตั้ง */
@@ -15,52 +16,52 @@
 body::-webkit-scrollbar {
     display: none; /* ซ่อน scrollbar บน Chrome, Safari */
 }
-  /* Body Styling */
-  body {
+/* Body Styling */
+body {
     background: #f9f9f9;
-    font-family: "Geist Mono", serif;
+    font-family: "Noto Sans Thai", sans-serif; /* เปลี่ยนฟอนต์เป็น Noto Sans Thai */
     font-optical-sizing: auto;
     line-height: 1.6;
     color: #333;
-  }
-  
-  /* Header Section */
-  .header {
+}
+
+/* Header Section */
+.header {
     background: #333;
     color: #fff;
     padding: 10px 0;
-  }
-  
-  .header .container {
+}
+
+.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: auto;
     padding: 0 20px;
-  }
-  
-  .header .logo {
+}
+
+.header .logo {
     font-size: 1.5rem;
-  }
-  
-  .header .nav ul {
+}
+
+.header .nav ul {
     list-style: none;
     display: flex;
-  }
-  
-  .header .nav ul li {
+}
+
+.header .nav ul li {
     margin-left: 20px;
-  }
-  
-  .header .nav ul li a {
+}
+
+.header .nav ul li a {
     color: #fff;
     text-decoration: none;
-  }
-  
-  .header .nav ul li a:hover {
+}
+
+.header .nav ul li a:hover {
     text-decoration: none;
-  }
+}
 
 table {
     width: 95%;

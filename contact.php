@@ -20,33 +20,33 @@ if (!isset($_SESSION['sess_id'])) {
       <h1 class="logo">Book a hotel</h1>
       <nav class="nav">
         <ul>
-          <li><a href="dashboard.php">Home</a></li>
-          <li><a href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>   
-          <li><a href="contact.php">Contact Us</a></li>
-          <li><a href="javascript:history.back()">Back</a></li> 
-          <li><a style="color: #ff5d5d;"href="../logout.php">Logout</a></li>
+          <li><a href="dashboard.php">บ้าน</a></li>
+          <li><a href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">ประวัติ</a></li>   
+          <li><a href="contact.php">ติดต่อ</a></li>
+          <li><a href="javascript:history.back()">กลับ</a></li> 
+          <li><a style="color: #ff5d5d;"href="../logout.php">ล๊อคเอาท์</a></li>
         </ul>
       </nav>
     </div>
   </header>
     <main>
         <section class="contact-us">
-            <h2>Contact Us</h2>
-            <p>We're here to help</p>
+            <h2>ติดต่อ</h2>
+            <p>ติดต่อเราหากต้องการความช่วยเหลือ</p>
             <div class="contact-options">
                 <div class="contact-option">
                     <div class="icon">📞</div>
-                    <h3>Call Us</h3>
-                    <p style="margin-bottom:10px;">Tel. 0123-456-789</p>
+                    <h3>เบอร์ติดต่อ</h3>
+                    <p style="margin-bottom:10px;">ติดต่อ 0123-456-789</p>
                 </div>
                 <div class="contact-option">
                 <div class="icon">🏢</div>
-                <h3>Address</h3>
-                    <p style="margin-bottom:10px;">1234 Dream Street, Suite 567, Suphanburi City, Thailand, 72000</p>
+                <h3>ที่อยู่</h3>
+                    <p style="margin-bottom:10px;">444/444 ถนนมาลัยแมน ตำบลรั้วใหญ่ อำเภอเมือง จังหวัดสุพรรณบุรี</p>
                 </div>
                 <div class="contact-option">
                     <div class="icon">✉️</div>
-                    <h3>Email a Question</h3>
+                    <h3>อีเมล</h3>
                     <p style="margin-bottom:10px;">testxxx@example.com</p>
                 </div>
             </div>
