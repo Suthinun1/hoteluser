@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-body {
+body,html {
     font-family: "Noto Sans Thai", sans-serif; /* เปลี่ยนฟอนต์เป็น Noto Sans Thai */
     font-optical-sizing: auto;
     font-weight: 500;
@@ -16,7 +16,11 @@ body {
     align-items: center;
     height: 100vh;
 }
-  
+.btn {
+    font-family: "Noto Sans Thai", sans-serif; /* เปลี่ยนฟอนต์เป็น Noto Sans Thai */
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
 /* Login container */
 .login-container {
     background-color: #fff;
@@ -47,6 +51,9 @@ label {
 }
   
 input[type="text"], input[type="password"] {
+    font-family: "Noto Sans Thai", sans-serif; /* เปลี่ยนฟอนต์เป็น Noto Sans Thai */
+    font-optical-sizing: auto;
+    font-weight: 500;
     width: 100%;
     padding: 10px;
     font-size: 14px;

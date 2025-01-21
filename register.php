@@ -53,27 +53,27 @@
         <h2>สมัครสมาชิก</h2>
         <form action="" method="post" class="register-form">
             <div class="form-group">
-                <label for="firstname">ชื่อจริง:</label>
+                <label for="firstname">ชื่อจริง</label>
                 <input type="text" id="firstname" name="firstname" placeholder="กรุณากรอกชื่อจริง" required>
             </div>
             <div class="form-group">
-                <label for="lastname">นามสกุล:</label>
+                <label for="lastname">นามสกุล</label>
                 <input type="text" id="lastname" name="lastname" placeholder="กรุณากรอกนามสกุล" required>
             </div>
             <div class="form-group">
-                <label for="username">ชื่อผู้ใช้:</label>
+                <label for="username">ชื่อผู้ใช้</label>
                 <input type="text" id="username" name="username" placeholder="กรุณากรอกชื่อผู้ใช้" required>
             </div>
             <div class="form-group">
-                <label for="email">อีเมล:</label>
+                <label for="email">อีเมล</label>
                 <input type="email" id="email" name="email" placeholder="กรุณากรอกอีเมล" required>
             </div>
             <div class="form-group">
-                <label for="password">รหัสผ่าน:</label>
+                <label for="password">รหัสผ่าน</label>
                 <input type="password" id="password" name="password" placeholder="สร้างรหัสผ่าน" required>
             </div>
             <div class="form-group">
-                <label for="confirm-password">ยืนยันรหัสผ่าน:</label>
+                <label for="confirm-password">ยืนยันรหัสผ่าน</label>
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="ยืนยันรหัสผ่าน" required>
             </div>
             <button type="submit" class="btn" name="insert">สมัครสมาชิก</button>
