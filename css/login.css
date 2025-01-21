@@ -43,6 +43,7 @@ label {
     font-size: 14px;
     margin-bottom: 8px;
     color: #333;
+    font-weight: bold;
 }
   
 input[type="text"], input[type="password"] {

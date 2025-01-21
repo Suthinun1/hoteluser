@@ -64,15 +64,15 @@ session_start(); // เริ่มต้น session
     <div class="hero">
         <div class="background"></div>
         <div class="content">
-            <h1>Welcome to BookHotel</h1>
-            <p>Book your dream stay with us today!</p>
+            <h1>ยินดีต้อนรับสู่โรงแรมเดอะการ์เดน</h1>
+            <p>จองห้องในฝันของคุณกับเราวันนี้!</p>
         </div>
     </div>
 
     <!-- ข้อความเลื่อน -->
     <div class="scrolling-banner">
         <div class="text">
-            <span>Welcome <?php echo isset($_SESSION['sess_username']) ? htmlspecialchars($_SESSION['sess_username'], ENT_QUOTES, 'UTF-8') : 'Guest'; ?>! Enjoy the Ultimate Experience at BookHotel! Luxury stays, amazing deals, and unforgettable memories await you!</span>
+            <span>ยินดีต้อนรับ <?php echo isset($_SESSION['sess_username']) ? htmlspecialchars($_SESSION['sess_username'], ENT_QUOTES, 'UTF-8') : '???'; ?> เพลิดเพลินไปกับประสบการณ์ขั้นสุดยอดที่เดอะการ์เดน ที่พักสุดหรู ข้อเสนอสุดพิเศษ และความทรงจำอันน่าจดจำรอคุณอยู่!</span>
         </div>
     </div>
 
@@ -80,34 +80,34 @@ session_start(); // เริ่มต้น session
         <div class="feature">
         <div class="feature-body">
             <img class="imgrm" src="img/roomstandard.jpg" alt="Standard">
-            <h3>Standard room</h3>
-            <p>Comfortable and affordable, perfect for a relaxing stay with all the essential amenities.</p>
-            <p>Price: 500 bath/Day</p>
+            <h3>ห้องมาตรฐาน</h3>
+            <p>สะดวกสบายและราคาไม่แพง เหมาะสำหรับการพักผ่อนอย่างผ่อนคลาย</p>
+            <p>ราคา: 500 บาท/วัน</p>
         </div>
         <div style="margin-top: 35px;">
-            <a class="action" href="content/roomstandard.php">View details</a>
+            <a class="action" href="content/roomstandard.php">ข้อมูลเพิ่มเติม</a>
         </div>
         </div>
         <div class="feature">
         <div class="feature-body">
             <img class="imgrm" src="img/roomsweet.jpg" alt="Sweet">
-            <h3>Sweet room</h3>
-            <p>A cozy and charming room offering exclusive discounts for a memorable stay.</p>
-            <p>Price: 1500 bath/Day</p>
+            <h3>ห้องสวีท</h3>
+            <p>ห้องพักแสนสบายและมีเสน่ห์มอบส่วนลดพิเศษสำหรับการเข้าพักที่น่าจดจำ</p>
+            <p>ราคา: 1500 บาท/วัน</p>
         </div>
         <div style="margin-top: 35px;">
-            <a class="action" href="content/roomsweet.php">View details</a>
+            <a class="action" href="content/roomsweet.php">ข้อมูลเพิ่มเติม</a>
         </div>
         </div>
         <div class="feature">
         <div class="feature-body">
             <img class="imgrm" src="img/roomvip.jpg" alt="Vip">
-            <h3>Vip room</h3>
-            <p>Luxurious and fully serviced, with 24/7 assistance for an exceptional experience.</p>
-            <p>Price: 3000 bath/Day</p>
+            <h3>ห้องวีไอพี</h3>
+            <p>หรูหราและบริการครบครัน พร้อมความช่วยเหลือตลอด 24 ชั่วโมงทุกวันเพื่อประสบการณ์สุดพิเศษ</p>
+            <p>ราคา: 3000 บาท/วัน</p>
         </div>
         <div style="margin-top: 35px;">
-            <a class="action" href="content/roomvip.php">View details</a>
+            <a class="action" href="content/roomvip.php">ข้อมูลเพิ่มเติม</a>
         </div>
         </div>
     </section>

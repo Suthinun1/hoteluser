@@ -37,17 +37,17 @@ if (!isset($_SESSION['sess_id'])) {
                 <div class="contact-option">
                     <div class="icon">📞</div>
                     <h3>เบอร์ติดต่อ</h3>
-                    <p style="margin-bottom:10px;">ติดต่อ 0123-456-789</p>
+                    <p style="margin-bottom:10px;">ติดต่อ 092-784-1769</p>
                 </div>
                 <div class="contact-option">
                 <div class="icon">🏢</div>
-                <h3>ที่อยู่</h3>
+                <h3>ที่ตั้ง</h3>
                     <p style="margin-bottom:10px;">444/444 ถนนมาลัยแมน ตำบลรั้วใหญ่ อำเภอเมือง จังหวัดสุพรรณบุรี</p>
                 </div>
                 <div class="contact-option">
                     <div class="icon">✉️</div>
                     <h3>อีเมล</h3>
-                    <p style="margin-bottom:10px;">testxxx@example.com</p>
+                    <p style="margin-bottom:10px;">khiansris@gmail.com</p>
                 </div>
             </div>
         </section>

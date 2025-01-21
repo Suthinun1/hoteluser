@@ -50,35 +50,35 @@
 </head>
 <body>
     <div class="container">
-        <h2>Register</h2>
+        <h2>สมัครสมาชิก</h2>
         <form action="" method="post" class="register-form">
             <div class="form-group">
-                <label for="firstname">Firstname:</label>
-                <input type="text" id="firstname" name="firstname" placeholder="Create new firstname" required>
+                <label for="firstname">ชื่อจริง:</label>
+                <input type="text" id="firstname" name="firstname" placeholder="กรุณากรอกชื่อจริง" required>
             </div>
             <div class="form-group">
-                <label for="lastname">Lastname:</label>
-                <input type="text" id="lastname" name="lastname" placeholder="Create new lastname" required>
+                <label for="lastname">นามสกุล:</label>
+                <input type="text" id="lastname" name="lastname" placeholder="กรุณากรอกนามสกุล" required>
             </div>
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Create new username" required>
+                <label for="username">ชื่อผู้ใช้:</label>
+                <input type="text" id="username" name="username" placeholder="กรุณากรอกชื่อผู้ใช้" required>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="email">อีเมล:</label>
+                <input type="email" id="email" name="email" placeholder="กรุณากรอกอีเมล" required>
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Create new Password" required>
+                <label for="password">รหัสผ่าน:</label>
+                <input type="password" id="password" name="password" placeholder="สร้างรหัสผ่าน" required>
             </div>
             <div class="form-group">
-                <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                <label for="confirm-password">ยืนยันรหัสผ่าน:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="ยืนยันรหัสผ่าน" required>
             </div>
-            <button type="submit" class="btn" name="insert">Register</button>
+            <button type="submit" class="btn" name="insert">สมัครสมาชิก</button>
             <div class="login-link">
-                <p>You have an account? <a href="login.php">Login</a></p>
+                <p>คุณมีบัญชีแล้ว? <a href="login.php">เข้าสู่ระบบ</a></p>
             </div>
         </form>
     </div>
