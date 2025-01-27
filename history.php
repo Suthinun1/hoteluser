@@ -73,31 +73,31 @@ $result = $stmt->get_result();  // ดึงผลลัพธ์ของคำ
 
 <header class="header">
     <div class="container">
-      <h1 class="logo">Book a hotel</h1>
+      <h1 class="logo">เดอะการ์เดนโฮเทล</h1>
       <nav class="nav">
         <ul>
-          <li><a href="dashboard.php">Home</a></li>
-          <li><a href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>
-          <li><a href="contact.php">Contact Us</a></li>
-          <li><a href="javascript:history.back()">Back</a></li>
-          <li><a style="color: #ff5d5d;" href="logout.php">Logout</a></li>
+          <li><a href="dashboard.php">บ้าน</a></li>
+          <li><a href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">ประวัติ</a></li>
+          <li><a href="contact.php">ติดต่อ</a></li>
+          <li><a href="javascript:history.back()">กลับ</a></li>
+          <li><a style="color: #ff5d5d;" href="logout.php">ล๊อคเอาท์</a></li>
         </ul>
       </nav>
     </div>
 </header>
 
-<h1 class="headtx">Booking history</h1>
+<h1 class="headtx">ประวัติการจอง</h1>
 <table>
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Tel</th>
-            <th>Check-in</th>
-            <th>Check-out</th>
-            <th>Price</th>
-            <th>Room type</th>
-            <th>IDroom</th>
-            <th>Status</th>
+            <th>ชื่อ</th>
+            <th>เบอร์</th>
+            <th>เช็คอิน</th>
+            <th>เช็คเอาท์</th>
+            <th>ราคา</th>
+            <th>ห้อง</th>
+            <th>หมายเลขห้อง</th>
+            <th>สถานะ</th>
         </tr>
     </thead>
     <tbody>

@@ -17,7 +17,7 @@ if (!isset($_SESSION['sess_id'])) {
 <body>
 <header class="header">
     <div class="container">
-      <h1 class="logo">Book a hotel</h1>
+      <h1 class="logo">เดอะการ์เดนโฮเทล</h1>
       <nav class="nav">
         <ul>
           <li><a href="dashboard.php">บ้าน</a></li>

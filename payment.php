@@ -101,31 +101,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <header class="header">
     <div class="container">
-        <h1 class="logo">Book a hotel</h1>
+        <h1 class="logo">เดอะการ์เดนโฮเทล</h1>
         <nav class="nav">
             <ul>
-                <li><a href="dashboard.php">Home</a></li>
-                <li><a href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>
-                <li><a href="contact.php">Contact Us</a></li>
-                <li><a href="javascript:history.back()">Back</a></li>
-                <li><a style="color: #ff5d5d;" href="logout.php">Logout</a></li>
+                <li><a href="dashboard.php">บ้าน</a></li>
+                <li><a href="history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">ประวัติ</a></li>
+                <li><a href="contact.php">ติดต่อ</a></li>
+                <li><a href="javascript:history.back()">กลับ</a></li>
+                <li><a style="color: #ff5d5d;" href="logout.php">ล๊อคเอาท์</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
-<h1 class="headtx">Payment</h1>
+<h1 class="headtx">การชำระเงิน</h1>
 
 <div class="form-container">
-    <h2>Name: <?php echo $row['firstname']. ' ' . $row['lastname']; ?></h2>
-    <h3 style="">Amount: <?php echo number_format($row['price'], 2); ?> THB</h3>
+    <h2>ชื่อ: <?php echo $row['firstname']. ' ' . $row['lastname']; ?></h2>
+    <h3 style="">จำนวนที่ชำระ: <?php echo number_format($row['price'], 2); ?> บาท</h3>
     <br>
     <hr>
     <br>
-    <h3>KPlus Bank: 123-45678-90</h3>
-    <h3>Name: Suthinun Khainsri</h3>
+    <h3>ธนาคารกสิกร: 123-45678-90</h3>
+    <h3>ชื่อ: สุธินันท์ เขียนศรี</h3>
     <form action="payment.php?booking_id=<?php echo $booking_id; ?>" method="post" enctype="multipart/form-data">
-        <label for="slip_image">Upload Payment Slip</label>
+        <label for="slip_image">อัพโหลดสลิปการชำระเงิน</label>
         <input type="file" name="slip_image" id="slip_image" required>
         
         <input type="submit" value="Submit Payment">
