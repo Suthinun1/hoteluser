@@ -20,14 +20,14 @@ if (!isset($_SESSION['sess_id'])) {
 <body>
   <header class="header">
     <div class="container">
-      <h1 class="logo">Book a hotel</h1>
+      <h1 class="logo">เดอะการ์เดนโฮเทล</h1>
       <nav class="nav">
         <ul>
-          <li><a href="../dashboard.php">Home</a></li>
-          <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>
-          <li><a href="../contact.php">Contact Us</a></li>
-          <li><a href="javascript:history.back()">Back</a></li>
-          <li><a style="color: #ff5d5d;"href="../logout.php">Logout</a></li>
+          <li><a href="../dashboard.php">บ้าน</a></li>
+          <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">ประวัติ</a></li>
+          <li><a href="../contact.php">ติดต่อ</a></li>
+          <li><a href="javascript:history.back()">กลับ</a></li>
+          <li><a style="color: #ff5d5d;"href="../logout.php">ล๊อคเอาท์</a></li>
         </ul>
       </nav>
     </div>
@@ -35,22 +35,22 @@ if (!isset($_SESSION['sess_id'])) {
 
   <section class="hero">
     <div class="container">
-      <h2>Stylish Simplicity of a Hotel</h2>
-      <a href="../booking/booksweet.php" class="btn" >Book Now</a>
+      <h2>ความเรียบง่ายมีสไตล์ของโรงแรม</h2>
+      <a href="../booking/booksweet.php" class="btn" >จองเลย!</a>
     </div>
   </section>
 
   <section id="about" class="about">
     <div class="container">
-      <h2>Sweet Room</h2>
-      <h4>Room available <?php echo $sweetCount ?>/20</h4>
+      <h2>ห้องสวีท</h2>
+      <h4>ห้องที่กำลังว่าง <?php echo $sweetCount ?>/20</h4>
       <p>
-        Discover the perfect romantic getaway in our Sweet Room, designed for love and intimacy. Experience luxurious amenities, elegant décor, and stunning views, creating the ideal atmosphere for your special moments together. Book now for an unforgettable stay.
+      ค้นพบสถานที่พักผ่อนแสนโรแมนติกที่สมบูรณ์แบบใน Sweet Room ของเรา ซึ่งออกแบบมาเพื่อความรักและความใกล้ชิด สัมผัสประสบการณ์สิ่งอำนวยความสะดวกที่หรูหรา การตกแต่งที่หรูหรา และทิวทัศน์อันตระการตา สร้างบรรยากาศที่เหมาะสำหรับช่วงเวลาพิเศษของคุณร่วมกัน จองตอนนี้เพื่อการเข้าพักอันน่าจดจำ
       </p>
       <ul class="features">
-        <li>✔ Free Wi-Fi</li>
-        <li>✔ Car Parking</li>
-        <li>✔ Duo Bed</li>
+        <li>✔ ฟรี Wi-Fi</li>
+        <li>✔ ที่จอดรถ</li>
+        <li>✔ เตียงคู่</li>
       </ul>
     </div>
   </section>

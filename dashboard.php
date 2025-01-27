@@ -1,5 +1,6 @@
 <?php
 session_start(); // เริ่มต้น session
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,8 @@ session_start(); // เริ่มต้น session
     position: relative;
     box-sizing: border-box;
     height: 40px;
-    line-height: 40px;     
+    line-height: 40px;   
+    display: flex;  
         }
 
         .scrolling-banner .text {
@@ -58,6 +60,39 @@ session_start(); // เริ่มต้น session
                 transform: translateX(-100%); /* ไปขอบซ้าย */
             }
         }
+
+        .login-btn{
+            font-weight: 600;
+            border: solid 5px white;
+    /* font-size: 10px; */
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    background: #ffb31d;
+    width: 100px;
+    padding: 1px;
+    margin: 0;
+    /* margin-left: 10px; */
+    justify-content: center;
+    z-index: 1;
+    align-items: center;
+        }
+        .logout-btn{
+            font-weight: 600;
+            border: solid 5px white;
+    /* font-size: 10px; */
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    background: #ff1d1d;
+    width: 100px;
+    padding: 1px;
+    margin: 0;
+    /* margin-left: 10px; */
+    justify-content: center;
+    z-index: 1;
+    align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -69,12 +104,24 @@ session_start(); // เริ่มต้น session
         </div>
     </div>
 
-    <!-- ข้อความเลื่อน -->
-    <div class="scrolling-banner">
-        <div class="text">
-            <span>ยินดีต้อนรับ <?php echo isset($_SESSION['sess_username']) ? htmlspecialchars($_SESSION['sess_username'], ENT_QUOTES, 'UTF-8') : '???'; ?> เพลิดเพลินไปกับประสบการณ์ขั้นสุดยอดที่เดอะการ์เดน ที่พักสุดหรู ข้อเสนอสุดพิเศษ และความทรงจำอันน่าจดจำรอคุณอยู่!</span>
+<!-- ข้อความเลื่อน -->
+<div class="scrolling-banner">
+    <?php if (isset($_SESSION['sess_username'])): ?>
+        <!-- ปุ่มล็อคเอ้าท์ -->
+        <a href="logout.php" class="log-ban logout-btn">ล็อคเอ้าท์</a>
+    <?php else: ?>
+        <!-- ปุ่มล็อคอิน -->
+        <a href="login.php" class="log-ban login-btn">ล็อคอิน</a>
+    <?php endif; ?>
+    <div class="text">
+        <div>
+            <span>
+                ยินดีต้อนรับ <?php echo isset($_SESSION['sess_username']) ? htmlspecialchars($_SESSION['sess_username'], ENT_QUOTES, 'UTF-8') : '???'; ?> 
+                เพลิดเพลินไปกับประสบการณ์ขั้นสุดยอดที่เดอะการ์เดน ที่พักสุดหรู ข้อเสนอสุดพิเศษ และความทรงจำอันน่าจดจำรอคุณอยู่!
+            </span>
         </div>
     </div>
+</div>
 
     <section class="features">
         <div class="feature">

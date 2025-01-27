@@ -20,14 +20,14 @@ if (!isset($_SESSION['sess_id'])) {
 <body>
   <header class="header">
     <div class="container">
-      <h1 class="logo">Book a hotel</h1>
+      <h1 class="logo">เดอะการ์เดนโฮเทล</h1>
       <nav class="nav">
         <ul>
-          <li><a href="../dashboard.php">Home</a></li>
-          <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>
-          <li><a href="../contact.php">Contact Us</a></li>
-          <li><a href="javascript:history.back()">Back</a></li>
-          <li><a style="color: #ff5d5d;"href="../logout.php">Logout</a></li>
+          <li><a href="../dashboard.php">บ้าน</a></li>
+          <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">ประวัติ</a></li>
+          <li><a href="../contact.php">ติดต่อ</a></li>
+          <li><a href="javascript:history.back()">กลับ</a></li>
+          <li><a style="color: #ff5d5d;"href="../logout.php">ล๊อคเอาท์</a></li>
         </ul>
       </nav>
     </div>
@@ -35,25 +35,25 @@ if (!isset($_SESSION['sess_id'])) {
 
   <section class="hero">
     <div class="container">
-      <h2>Stylish Simplicity of a Hotel</h2>
-      <a href="../booking/bookvip.php" class="btn" >Book Now</a>
+      <h2>ความเรียบง่ายมีสไตล์ของโรงแรม</h2>
+      <a href="../booking/bookvip.php" class="btn" >จองเลย!</a>
     </div>
   </section>
 
   <section id="about" class="about">
     <div class="container">
-      <h2>VIP Room</h2>
-      <h4>Room available <?php echo $vipCount ?>/10</h4>
+      <h2>ห้องวีไอพี</h2>
+      <h4>ห้องที่กำลังว่าง <?php echo $vipCount ?>/10</h4>
       <p>
-        Discover ultimate luxury in our VIP room, designed for sophistication and comfort. Enjoy premium amenities, elegant décor, and breathtaking views, perfect for work or relaxation. Book now to elevate your stay.
+      ค้นพบความหรูหราขั้นสุดยอดในห้องวีไอพีของเรา ซึ่งออกแบบมาเพื่อความหรูหราและความสะดวกสบาย เพลิดเพลินกับสิ่งอำนวยความสะดวกระดับพรีเมียม การตกแต่งที่หรูหรา และทิวทัศน์อันน่าทึ่ง เหมาะสำหรับการทำงานหรือการพักผ่อน จองตอนนี้เพื่อยกระดับการเข้าพักของคุณ
       </p>
       <ul class="features">
-        <li>✔ Free Wi-Fi</li>
-        <li>✔ Car Parking</li>
-        <li>✔ Four Bed</li>
-        <li>✔ Kitchen</li>
-        <li>✔ Free Fitness Zone</li>
-        <li>✔ Private Swimming Pool</li> 
+        <li>✔ ฟรี Wi-Fi</li>
+        <li>✔ ที่จอดรถ</li>
+        <li>✔ สี่เตียงนอน</li>
+        <li>✔ ห้องครัว</li>
+        <li>✔ โซนออกกำลังกายฟรี</li>
+        <li>✔ สระว่ายน้ำส่วนตัว</li> 
       </ul>
     </div>
   </section>

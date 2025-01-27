@@ -19,14 +19,14 @@ if (!isset($_SESSION['sess_id'])) {
 <body>
   <header class="header">
     <div class="container">
-      <h1 class="logo">Book a hotel</h1>
+      <h1 class="logo">เดอะการ์เดนโฮเทล</h1>
       <nav class="nav">
         <ul>
-          <li><a href="../dashboard.php">Home</a></li>
-          <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>
-          <li><a href="../contact.php">Contact Us</a></li>
-          <li><a href="javascript:history.back()">Back</a></li>
-          <li><a style="color: #ff5d5d;" href="../logout.php">Logout</a></li>
+          <li><a href="../dashboard.php">บ้าน</a></li>
+          <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">ประวัติ</a></li>
+          <li><a href="../contact.php">ติดต่อ</a></li>
+          <li><a href="javascript:history.back()">กลับ</a></li>
+          <li><a style="color: #ff5d5d;" href="../logout.php">ล็อคเอ้าท์</a></li>
         </ul>
       </nav>
     </div>
@@ -36,21 +36,20 @@ if (!isset($_SESSION['sess_id'])) {
   <section class="hero">
     <div class="backgound"></div>
     <div class="container">
-      <h2>Stylish Simplicity of a Hotel</h2>
-      <a href="../booking/bookstandard.php" class="btn" >Book Now</a>
+      <h2>ความเรียบง่ายมีสไตล์ของโรงแรม</h2>
+      <a href="../booking/bookstandard.php" class="btn" >จองเลย!</a>
     </div>
   </section>
 
   <section id="about" class="about">
     <div class="container">
-      <h2>Standard Room</h2>
-      <h4>Vacant room <?php echo $standardCount ?>/29</h4>
+      <h2>ห้องมาตรฐาน</h2>
+      <h4>ห้องที่กำลังว่าง <?php echo $standardCount ?>/29</h4>
       <p>
-      Relax in our Standard Room, designed for comfort and convenience. Enjoy essential amenities and a cozy atmosphere, perfect for a restful stay. Book now for an affordable and pleasant experience.
-      </p>
+      ผ่อนคลายในห้องมาตรฐานของเรา ออกแบบมาเพื่อความสะดวกสบาย เพลิดเพลินกับสิ่งอำนวยความสะดวกที่จำเป็นและบรรยากาศสบาย ๆ เหมาะสำหรับการพักผ่อนอย่างผ่อนคลาย จองตอนนี้เพื่อรับประสบการณ์ที่คุ้มค่าและน่าพึงพอใจ</p>
       <ul class="features">
-        <li>✔ Free Wi-Fi</li>
-        <li>✔ Car Parking</li>
+        <li>✔ ฟรี Wi-Fi</li>
+        <li>✔ ที่จอดรถ</li>
       </ul>
     </div>
   </section>
