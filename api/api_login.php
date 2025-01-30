@@ -18,7 +18,7 @@
             $_SESSION['sess_id'] = $result['user_id'];  // ใช้ $result['user_id'] สำหรับอาร์เรย์
             $_SESSION['sess_username'] = $_POST['username'];
             echo "<script>
-                    alert('Login successful!');
+                    alert('เข้าสู่ระบบสำเร็จ!');
                     window.location.href = '../dashboard.php';
                   </script>";
             exit;

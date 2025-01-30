@@ -15,16 +15,16 @@
     
         // ตรวจสอบว่าค่าของ confirm password ตรงกันหรือไม่
         if ($pass != $_POST['confirm-password']) {
-            echo "<script>alert('Password and Confirm Password do not match');</script>";
+            echo "<script>alert('รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน');</script>";
         } else {
             // เรียกใช้ฟังก์ชัน insert ให้ถูกต้อง
             $sql = $insertdata->insert($uname, $pass, $fname, $lname, $email); // Updated to include email
     
             if ($sql) {
-                echo "<script>alert('Register Successfully');</script>";
+                echo "<script>alert('ลงทะเบียนสำเร็จ');</script>";
                 echo "<script>window.location.href='login.php'</script>";
             } else {
-                echo "<script>alert('Something Went Wrong');</script>";
+                echo "<script>alert('มีบางอย่างผิดพลาด');</script>";
                 echo "<script>window.location.href='register.php'</script>";
             }
         }
