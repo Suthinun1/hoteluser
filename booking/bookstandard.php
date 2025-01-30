@@ -66,14 +66,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <header class="header">
     <div class="container">
-      <h1 class="logo">Book a hotel</h1>
+      <h1 class="logo">เดอะการ์เดนโฮเทล</h1>
       <nav class="nav">
         <ul>
-          <li><a href="../dashboard.php">Home</a></li>
-          <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">History</a></li>
-          <li><a href="../contact.php">Contact Us</a></li>
-          <li><a href="javascript:history.go(-2)">Back</a></li>
-          <li><a style="color: #ff5d5d;" href="../logout.php">Logout</a></li>
+          <li><a href="../dashboard.php">บ้าน</a></li>
+          <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">ประวัติ</a></li>
+          <li><a href="../contact.php">ติดต่อs</a></li>
+          <li><a href="javascript:history.go(-2)">กลับ</a></li>
+          <li><a style="color: #ff5d5d;" href="../logout.php">ล๊อคเอาท์</a></li>
         </ul>
       </nav>
     </div>
@@ -82,21 +82,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <section class="hero">
     <div class="backgound"></div>
     <div class="container">
-      <h2>Stylish Simplicity of a Hotel</h2>
-      <a href="#rooms" class="btn">Book Now</a>
+      <h2>ความเรียบง่ายมีสไตล์ของโรงแรม</h2>
     </div>
   </section>
 
   <section id="about" class="about">
     <div class="container">
-      <h2>Standard Room</h2>
-      <h4>Room available <?php echo $standardCount ?>/29</h4>
+      <h2>ห้องมาตรฐาน</h2>
+      <h4>ห้องที่กำลังว่าง <?php echo $standardCount ?>/29</h4>
       <p>
-      Relax in our Standard Room, designed for comfort and convenience. Enjoy essential amenities and a cozy atmosphere, perfect for a restful stay. Book now for an affordable and pleasant experience.
+      ผ่อนคลายในห้องมาตรฐานของเรา ออกแบบมาเพื่อความสะดวกสบาย เพลิดเพลินกับสิ่งอำนวยความสะดวกที่จำเป็นและบรรยากาศสบาย ๆ เหมาะสำหรับการพักผ่อนอย่างผ่อนคลาย จองตอนนี้เพื่อรับประสบการณ์ที่คุ้มค่าและน่าพึงพอใจ</p>
       </p>
       <ul class="features">
-        <li>✔ Free Wi-Fi</li>
-        <li>✔ Car Parking</li>
+        <li>✔ ฟรี Wi-Fi</li>
+        <li>✔ ที่จอดรถ</li>
       </ul>
     </div>
   </section>
@@ -105,32 +104,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container-1">
       <form action="" method="POST">
         <div class="form-group">
-          <label for="firstname">First Name:</label>
-          <input type="text" id="firstname" name="firstname" placeholder="Enter Firstname" required>
+          <label for="firstname">ชื่อจริง(ชื่อผู้จอง) :</label>
+          <input type="text" id="firstname" name="firstname" placeholder="กรอกชื่อจริง" required>
         </div>
 
         <div class="form-group">
-          <label for="lastname">Last Name:</label>
-          <input type="text" id="lastname" name="lastname" placeholder="Enter Lastname" required>
+          <label for="lastname">นามสกุล(นามสกุลผู้จอง) :</label>
+          <input type="text" id="lastname" name="lastname" placeholder="กรอกนามสกุล" required>
         </div>
 
         <div class="form-group">
-          <label for="phone">Phone Number:</label>
-          <input type="text" id="phone" name="phone" placeholder="Enter phonenumer" required>
+          <label for="phone">เบอร์โทรศัพท์ :</label>
+          <input type="text" id="phone" name="phone" placeholder="กรอกเบอร์โทรศัพท์" required>
         </div>
 
         <div class="form-group">
-          <label for="checkin">Check-in Date:</label>
+          <label for="checkin">วันที่จะเช็คอิน :</label>
           <input type="date" id="checkin" name="checkin" required>
         </div>
 
         <div class="form-group">
-          <label for="checkout">Check-out Date:</label>
+          <label for="checkout">วันที่จะเช็คเอาท์ :</label>
           <input type="date" id="checkout" name="checkout" required>
         </div>
 
         <div class="form-group">
-          <label for="price">Price:</label>
+          <label for="price">ราคา :</label>
           <input type="text" id="price" name="price" readonly>
           <input type="hidden" id="roomtype" name="roomtype" value="standard" readonly>
           <input type="hidden" id="id" name="id" value="<?php echo $_SESSION['sess_id']; ?>" readonly>
@@ -140,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <input type="hidden" id="status" name="status" value="รอตอบกลับ"/>
         </div>
         
-        <button type="submit" class="btn">Confirm Booking</button>
+        <button type="submit" class="btn">ยืนยันจอง</button>
       </form>
     </div>
   </section>

@@ -63,9 +63,8 @@ session_start(); // เริ่มต้น session
 
         .login-btn{
             font-weight: 600;
-            border: solid 5px white;
     /* font-size: 10px; */
-    border-radius: 10px;
+    border-radius:0 5px 5px 0;
     color: white;
     display: flex;
     background: #ffb31d;
@@ -79,9 +78,8 @@ session_start(); // เริ่มต้น session
         }
         .logout-btn{
             font-weight: 600;
-            border: solid 5px white;
     /* font-size: 10px; */
-    border-radius: 10px;
+    border-radius:0 5px 5px 0;
     color: white;
     display: flex;
     background: #ff1d1d;

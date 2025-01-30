@@ -19,6 +19,7 @@ body::-webkit-scrollbar {
 /* Body Styling */
 body {
     background: #f9f9f9;
+    font-weight: 500;
     font-family: "Noto Sans Thai", sans-serif; /* เปลี่ยนฟอนต์เป็น Noto Sans Thai */
     font-optical-sizing: auto;
     line-height: 1.6;
