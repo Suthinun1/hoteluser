@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <ul>
           <li><a href="../dashboard.php">บ้าน</a></li>
           <li><a href="../history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">ประวัติ</a></li>
-          <li><a href="../contact.php">ติดต่อs</a></li>
+          <li><a href="../contact.php">ติดต่อ</a></li>
           <li><a href="javascript:history.go(-2)">กลับ</a></li>
           <li><a style="color: #ff5d5d;" href="../logout.php">ล๊อคเอาท์</a></li>
         </ul>
@@ -118,16 +118,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <input type="text" id="phone" name="phone" placeholder="กรอกเบอร์โทรศัพท์" required>
         </div>
 
-        <div class="form-group">
-          <label for="checkin">วันที่จะเช็คอิน :</label>
-          <input type="date" id="checkin" name="checkin" required>
-        </div>
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟอร์มจองโรงแรม</title>
+    <script>
+        function setMinCheckoutDate() {
+            let checkin = document.getElementById("checkin");
+            let checkout = document.getElementById("checkout");
 
-        <div class="form-group">
-          <label for="checkout">วันที่จะเช็คเอาท์ :</label>
-          <input type="date" id="checkout" name="checkout" required>
-        </div>
+            // กำหนด min ให้วันที่เช็คเอาท์ต้องไม่น้อยกว่าวันที่เช็คอิน
+            checkout.min = checkin.value;
+            
+            // ถ้าค่าวันที่เช็คเอาท์ก่อนวันที่เช็คอิน ให้รีเซ็ตค่า
+            if (checkout.value < checkin.value) {
+                checkout.value = checkin.value;
+            }
+        }
+    </script>
+</head>
+<body>
 
+    <div class="form-group">
+        <label for="checkin">วันที่จะเช็คอิน :</label>
+        <input type="date" id="checkin" name="checkin" required onchange="setMinCheckoutDate()">
+    </div>
+
+    <div class="form-group">
+        <label for="checkout">วันที่จะเช็คเอาท์ :</label>
+        <input type="date" id="checkout" name="checkout" required>
+    </div>
+
+</body>
         <div class="form-group">
           <label for="price">ราคา :</label>
           <input type="text" id="price" name="price" readonly>

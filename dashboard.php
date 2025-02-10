@@ -6,6 +6,71 @@ session_start(); // เริ่มต้น session
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เดอะการ์เดนโฮเทล</title>
+    <style>
+        /* กำหนดสไตล์ให้ taskbar */
+        .navbar {
+            background-color: #333; /* สีเทาเข้ม */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px; /* ทำให้ขอบโค้งมน */
+        }
+        
+        /* กำหนดสไตล์ให้โลโก้ */
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* กำหนดเมนูให้อยู่ในรูปแบบแถวเดียวกัน */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* สไตล์ลิงก์เมนู */
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        /* เปลี่ยนสีเมื่อโฮเวอร์ */
+        .nav-links li a:hover {
+            color: #1e90ff; /* สีน้ำเงินอ่อน */
+        }
+
+        /* สไตล์ลิงก์ล็อคเอาท์ให้เป็นสีแดง */
+        .logout {
+            color: #ff5d5d !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">เดอะการ์เดนโฮเทล</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.php">บ้าน</a></li>
+            <li><a href="./history.php?user_id=<?php echo $_SESSION['sess_id']; ?>">ประวัติ</a></li>
+            <li><a href="contact.php">ติดต่อ</a></li>
+            <li><a href="javascript:history.back()">กลับ</a></li>
+            <li><a class="logout" href="./logout.php">ล็อคเอาท์</a></li>
+        </ul>
+    </div>
+
+</body>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/dashboard.css">
@@ -104,13 +169,7 @@ session_start(); // เริ่มต้น session
 
 <!-- ข้อความเลื่อน -->
 <div class="scrolling-banner">
-    <?php if (isset($_SESSION['sess_username'])): ?>
-        <!-- ปุ่มล็อคเอ้าท์ -->
-        <a href="logout.php" class="log-ban logout-btn">ล็อคเอ้าท์</a>
-    <?php else: ?>
-        <!-- ปุ่มล็อคอิน -->
-        <a href="login.php" class="log-ban login-btn">ล็อคอิน</a>
-    <?php endif; ?>
+
     <div class="text">
         <div>
             <span>
