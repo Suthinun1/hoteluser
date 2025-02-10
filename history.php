@@ -88,73 +88,70 @@ $result = $stmt->get_result();  // ดึงผลลัพธ์ของคำ
 
 <h1 class="headtx">ประวัติการจอง</h1>
 <table>
-    <thead>
-        <tr>
-            <th>ชื่อ</th>
-            <th>เบอร์</th>
-            <th>เช็คอิน</th>
-            <th>เช็คเอาท์</th>
-            <th>ราคา</th>
-            <th>ห้อง</th>
-            <th>หมายเลขห้อง</th>
-            <th>สถานะ</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        // ตรวจสอบว่า query คืนข้อมูลมาไหม
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                // กำหนดสีตามสถานะ
-                $statusClass = '';
-                $statusContent = $row['status']; // Default status content
-                
-                // ตรวจสอบสถานะของการจอง
+<thead>
+    <tr>
+        <th>ชื่อ</th>
+        <th>เบอร์</th>
+        <th>เช็คอิน</th>
+        <th>เช็คเอาท์</th>
+        <th>ราคา</th>
+        <th>ห้อง</th>
+        <th>หมายเลขห้อง</th>
+        <th>สถานะ</th>
+        <th>การกระทำ</th> <!-- เพิ่มคอลัมน์ใหม่ -->
+    </tr>
+</thead>
+<tbody>
+    <?php
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $statusClass = '';
+            $statusContent = $row['status'];
 
-                if ($row['status'] == 'รอตอบกลับ') {
-                    $statusClass = 'status-waiting';
-                    $statusContent = 'รอตอบกลับ';
-                } elseif ($row['status'] == 'รอชำระ') {
-                    $statusClass = 'status-pending';
-                    // เพิ่มลิงก์ไปยังหน้าการชำระเงิน
-                    $statusContent = "<a href='payment.php?booking_id=" . $row['idpri'] . "'>กรุณาชำระเงิน</a>";
-                } elseif ($row['status'] == 'ชำระเงินเสร็จสิ้น') {
-                    $statusClass = 'status-completed';
-                    $statusContent = 'ชำระเงินเสร็จสิ้น';
-                } elseif ($row['status'] == 'ยกเลิก') {
-                    $statusClass = 'status-canceled';
-                    $statusContent = 'ยกเลิก';
-                } elseif ($row['status'] == 'ยืนยัน') { // ตรวจสอบสถานะยืนยัน
-                    $statusClass = 'status-completed-1';
-                    $statusContent = "<a href='slip.php?booking_id=" . $row['idpri'] . "'>เสร็จสิ้น</a>";
-                } else {
-                    $statusClass = '';
-                    $statusContent = $row['status'];
-                }
-                
+            if ($row['status'] == 'รอตอบกลับ') {
+                $statusClass = 'status-waiting';
+                $statusContent = 'รอตอบกลับ';
+            } elseif ($row['status'] == 'รอชำระ') {
+                $statusClass = 'status-pending';
+                $statusContent = "<a href='payment.php?booking_id=" . $row['idpri'] . "'>กรุณาชำระเงิน</a>";
+            } elseif ($row['status'] == 'ชำระเงินเสร็จสิ้น') {
+                $statusClass = 'status-completed';
+                $statusContent = 'ชำระเงินเสร็จสิ้น';
+            } elseif ($row['status'] == 'ยกเลิก') {
+                $statusClass = 'status-canceled';
+                $statusContent = 'ยกเลิก';
+            } elseif ($row['status'] == 'ยืนยัน') {
+                $statusClass = 'status-completed-1';
+                $statusContent = "<a href='slip.php?booking_id=" . $row['idpri'] . "'>เสร็จสิ้น</a>";
+            } 
 
-                if (empty($row['id_room'])) {
-                    $idRoomContent = 'wait confirm';
-                } else {
-                    $idRoomContent = $row['id_room'];
-                }
+            $idRoomContent = empty($row['id_room']) ? 'wait confirm' : $row['id_room'];
 
-                echo "<tr>";
-                echo "<td>" . $row['firstname'] . " " . $row['lastname'] . "</td>";
-                echo "<td>" . $row['phone'] . "</td>";
-                echo "<td>" . $row['checkin'] . "</td>";
-                echo "<td>" . $row['checkout'] . "</td>";
-                echo "<td>" . number_format($row['price'], 2) . "</td>";
-                echo "<td>" . $row['roomtype'] . "</td>";
-                echo "<td>" . $idRoomContent . "</td>";  // ใช้ตัวแปร $idRoomContent
-                echo "<td class='$statusClass'>" . $statusContent . "</td>";
-                echo "</tr>";
+            echo "<tr>";
+            echo "<td>" . $row['firstname'] . " " . $row['lastname'] . "</td>";
+            echo "<td>" . $row['phone'] . "</td>";
+            echo "<td>" . $row['checkin'] . "</td>";
+            echo "<td>" . $row['checkout'] . "</td>";
+            echo "<td>" . number_format($row['price'], 2) . "</td>";
+            echo "<td>" . $row['roomtype'] . "</td>";
+            echo "<td>" . $idRoomContent . "</td>";
+            echo "<td class='$statusClass'>" . $statusContent . "</td>";
+
+            // แสดงปุ่ม "ยกเลิก" ถ้าสถานะเป็น "รอตอบกลับ" หรือ "รอชำระ"
+            echo "<td>";
+            if ($row['status'] == 'รอตอบกลับ' || $row['status'] == 'รอชำระ') {
+                echo "<a href='cancel_booking.php?booking_id=" . $row['idpri'] . "' onclick='return confirm(\"คุณต้องการยกเลิกการจองนี้หรือไม่?\")' class='cancel-button'>ยกเลิก</a>";
             }
-        } else {
-            echo "<tr><td colspan='8'>No information found.</td></tr>";
+            echo "</td>";
+
+            echo "</tr>";
         }
-        ?>
-    </tbody>
+    } else {
+        echo "<tr><td colspan='9'>No information found.</td></tr>";
+    }
+    ?>
+</tbody>
+
 </table>
 
 <footer class="footer">
